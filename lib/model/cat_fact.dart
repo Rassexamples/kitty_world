@@ -5,7 +5,6 @@ class CatFact {
  final String fact;
  final int length;
  final String imageUrl ;
-int positionOnList=0;
   CatFact({required this.fact, required this.length, required this.imageUrl});
 
   factory CatFact.fromJson(Map<String,dynamic> json) => _$CatFactFromJson(json);

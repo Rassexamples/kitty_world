@@ -40,16 +40,22 @@ abstract class AppTheme {
   static BoxShadow boxShadowBlack = BoxShadow(
       color: Colors.black54.withOpacity(.1), blurRadius: 1, spreadRadius: 1);
 
-  static BorderRadius borderRadius = const BorderRadius.only(
+  static BorderRadius borderRightClipped = const BorderRadius.only(
     topRight: Radius.circular(12),
     topLeft: Radius.circular(0),
     bottomLeft: Radius.circular(2),
     bottomRight: Radius.circular(12),
   );
+  static BorderRadius borderAllClipped = const BorderRadius.only(
+    topRight: Radius.circular(12),
+    topLeft: Radius.circular(12),
+    bottomLeft: Radius.circular(12),
+    bottomRight: Radius.circular(12),
+  );
 
   static BoxDecoration boxDecorationWhite = BoxDecoration(
   color: AppTheme.colorWhiteLow,
-  borderRadius: AppTheme.borderRadius,
+  borderRadius: AppTheme.borderAllClipped,
   boxShadow: [
   AppTheme.boxShadowBlack,
   ]);

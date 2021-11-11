@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kitty_world/model/cat_fact.dart';
+import 'package:kitty_world/model/detail_view_argument.dart';
 import 'package:kitty_world/ui/detail_screen/view/fact_details_view.dart';
 import 'package:kitty_world/ui/shared_elements/main_layout.dart';
 
@@ -12,12 +12,12 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as CatFact;
+    final args = ModalRoute.of(context)!.settings.arguments as DetailViewArgument;
 
     return MainLayout(
       animationConfiguration: (animationController) => {
         animationController.forward()
       },
-        child: FactDetailsView(catFact: args));
+        child: FactDetailsView(details: args,));
   }
 }

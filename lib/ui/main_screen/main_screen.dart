@@ -70,8 +70,8 @@ class _MainScreenState extends State<MainScreen> {
         fetchListSize: result.perPage,
         imageUrl: (index) => vm.getRandomImageUrl(index),
         facts: result.facts,
-        onTap: (item, positionOnList) =>
-            vm.onItemTap(context, item, positionOnList),
+        onTap: (details) =>
+            vm.onItemTap(context, details),
       );
     } else if (vm.latestResult is Fetching) {
       return const LoadingView();

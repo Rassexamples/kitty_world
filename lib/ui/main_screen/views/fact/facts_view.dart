@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:kitty_world/model/cat_fact.dart';
-import 'package:kitty_world/model/fetch_result.dart';
+import 'package:kitty_world/model/detail_view_argument.dart';
 import 'package:kitty_world/resources/general_theme.dart';
 import 'package:kitty_world/resources/text_resources.dart';
 import 'package:kitty_world/ui/main_screen/views/fact/widgets/fact_container.dart';
 import 'package:kitty_world/ui/shared_elements/button.dart';
 import 'package:kitty_world/ui/shared_elements/main_layout.dart';
-import 'package:kitty_world/viewModel/main/main_viewmodel.dart';
-import 'package:stacked/stacked.dart';
+
 
 class FactsView extends StatefulWidget {
   final int fetchListSize;
   final Function(int index) imageUrl;
   final List<CatFact> facts;
-  final Function(CatFact item, int positionOnList) onTap;
+  final Function(DetailViewArgument item) onTap;
   final ScrollController scrollController;
 
   ///
@@ -53,7 +52,11 @@ class _FactsViewState extends State<FactsView> {
             index: index,
             randomImageUrl: widget.imageUrl(index),
             catFact: widget.facts[index],
-            onTap: () => {widget.onTap(widget.facts[index], index + 1)},
+            onTap: () {
+              DetailViewArgument item =
+              DetailViewArgument(widget.facts[index], widget.imageUrl(index),index + 1);
+              widget.onTap(item);
+            },
           ),
         ),
       ),

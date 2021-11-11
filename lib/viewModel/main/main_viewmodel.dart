@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:kitty_world/data/repo.dart';
-import 'package:kitty_world/model/cat_fact.dart';
+import 'package:kitty_world/model/detail_view_argument.dart';
 import 'package:kitty_world/model/fetch_result.dart';
 import 'package:kitty_world/resources/link_resources.dart';
 import 'package:kitty_world/ui/shared_elements/router.dart';
@@ -54,8 +54,7 @@ class MainViewModel extends ChangeNotifier {
 
   ///
   /// Getting the [context], it pushes the [DetailsView] of the given [fact]  to the stack
-  onItemTap(BuildContext context, CatFact fact, int indexOnList) {
-    fact.positionOnList = indexOnList;
-    Navigator.pushNamed(context, KittyAppRoutes.DETAIL_SCREEN, arguments: fact);
+  onItemTap(BuildContext context, DetailViewArgument args) {
+    Navigator.pushNamed(context, KittyAppRoutes.DETAIL_SCREEN, arguments: args);
   }
 }

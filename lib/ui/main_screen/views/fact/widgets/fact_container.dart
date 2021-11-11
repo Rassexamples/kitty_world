@@ -1,14 +1,10 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:kitty_world/model/cat_fact.dart';
 import 'package:kitty_world/resources/general_theme.dart';
-import 'package:kitty_world/resources/link_resources.dart';
 import 'package:kitty_world/ui/main_screen/views/fact/widgets/fact_description.dart';
 import 'package:kitty_world/ui/shared_elements/fact_number_index.dart';
 import 'package:kitty_world/ui/main_screen/views/fact/widgets/image_holder.dart';
-import 'package:kitty_world/util/extensions.dart';
 
 class FactItemContainer extends StatelessWidget {
   final CatFact catFact;
@@ -41,7 +37,7 @@ class FactItemContainer extends StatelessWidget {
                 onTap: onTap,
                 child: Row(
                   children: [
-                    ImageHolder(randomImageUrl: randomImageUrl),
+                    ImageHolder(randomImageUrl: randomImageUrl,borderClip: AppTheme.borderRightClipped,),
                     Container(
                       margin: const EdgeInsets.only(right: 10),
                       width: 4,

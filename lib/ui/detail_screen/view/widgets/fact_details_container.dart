@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kitty_world/model/cat_fact.dart';
+import 'package:kitty_world/model/detail_view_argument.dart';
 import 'package:kitty_world/resources/general_theme.dart';
+import 'package:kitty_world/ui/main_screen/views/fact/widgets/image_holder.dart';
 
 class FactDetailsContainer extends StatelessWidget {
 
@@ -8,11 +9,10 @@ class FactDetailsContainer extends StatelessWidget {
   /// Main expandable - vertically - container for the content details
   const FactDetailsContainer({
     Key? key,
-    required this.catFact,
+    required this.details,
   }) : super(key: key);
 
-  final CatFact catFact;
-
+  final DetailViewArgument details;
   @override
   Widget build(BuildContext context) {
     return Wrap(
@@ -24,10 +24,14 @@ class FactDetailsContainer extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              ImageHolder(
+                randomImageUrl: details.imageUrl,
+                borderClip: AppTheme.borderAllClipped,
+              ),
               Padding(
                 padding: AppTheme.edge16,
                 child: Text(
-                  catFact.fact,
+                  details.fact.fact,
                   textAlign: TextAlign.justify,
                   style: AppTheme.textStyleLarge21,
                 ),
@@ -35,7 +39,7 @@ class FactDetailsContainer extends StatelessWidget {
               Padding(
                 padding: AppTheme.edge8,
                 child: Text(
-                  "length: ${catFact.length.toString()}",
+                  "length: ${details.fact.length.toString()}",
                   style: AppTheme.textStyleLarge18,
                 ),
               )
